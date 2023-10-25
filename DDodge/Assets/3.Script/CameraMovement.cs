@@ -27,8 +27,7 @@ public class CameraMovement : MonoBehaviour
         dirNormalrized = realCamera.localPosition.normalized;
         finalDistance = realCamera.localPosition.magnitude;
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        
 
     }
 

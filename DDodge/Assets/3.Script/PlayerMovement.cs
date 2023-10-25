@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Camera camera;
-
+    [SerializeField] private GameObject GameOverUI;
 
     public float Speed = 5f;
     public float runSpeed = 8f;
@@ -100,6 +100,18 @@ public class PlayerMovement : MonoBehaviour
         float percent = ((isRun) ? 1 : 0.5f) * moveDirection.magnitude;
 
     }
-  
 
+   
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.CompareTag("Dead"));
+        if (other.CompareTag("Dead"))
+        {
+            GameOverUI.gameObject.SetActive(true);
+            GameManager.instance.Stop();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+    }
 }
