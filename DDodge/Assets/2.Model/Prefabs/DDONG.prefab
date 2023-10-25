@@ -225,6 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hit_Range_indicator: {fileID: 0}
+  rb: {fileID: 2726540666186223877}
 --- !u!54 &2726540666186223877
 Rigidbody:
   m_ObjectHideFlags: 0

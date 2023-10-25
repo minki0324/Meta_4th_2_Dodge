@@ -8,16 +8,17 @@ public class DDONG : MonoBehaviour
 
     public GameObject Hit_Range_indicator;
 
+    public Rigidbody rb;
 
     private void Update()
     {
         spawner = FindObjectOfType<Spawner>();
-        StartCoroutine(move_Down());
+        //StartCoroutine(move_Down());
     }
 
-    private void Start()
+    private void OnEnable()
     {
-
+        rb.velocity = Vector3.zero;
     }
 
 

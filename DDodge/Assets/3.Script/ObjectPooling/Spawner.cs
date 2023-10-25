@@ -15,9 +15,6 @@ public class Spawner : MonoBehaviour
     //[SerializeField]
     //private Sprite Hit_Range_indicator;
 
-
-
-
     private float x;
     private float y;
     private float z;
@@ -30,17 +27,13 @@ public class Spawner : MonoBehaviour
 
     private void Awake()
     {
-
         Pool_Q = new Queue<GameObject>(Prefabs_Count);
         
-
         //합치고 똥떨어질 범위 정해서 x,y,z 바꾸기!_!
 
         Init();
-
        
         StartCoroutine(SpawnDDong_Coroutine());
-
     }
 
     private void Init()
@@ -49,9 +42,6 @@ public class Spawner : MonoBehaviour
         {
             //GameObject newDDONG = Instantiate(DDONG_Prefab, poolPos, Quaternion.identity);
             Pool_Q.Enqueue(ObjectPooling());
-
-
-
         }
     }
 
@@ -69,7 +59,6 @@ public class Spawner : MonoBehaviour
         //Vector3 indiPos = new Vector3(newDDONG.transform.position.x, 0f, newDDONG.transform.position.z);
         //GameObject indicator = Instantiate(newDDONG.GetComponent<DDONG>().Hit_Range_indicator, indiPos, Quaternion.identity);
         //indicator.transform.SetParent(newDDONG.transform);
-
 
         return newDDONG;
     }
