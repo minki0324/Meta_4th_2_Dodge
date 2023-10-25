@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private Queue<GameObject> Pool_Q;
 
-    public float SpawnTime { get; private set; } = 0.01f;
+    public float SpawnTime { get; private set; } = 0.1f;
 
     //[SerializeField]
     //private Sprite Hit_Range_indicator;
@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour
     private Vector3 poolPos;
 
     [SerializeField]
-    private int Prefabs_Count = 10;
+    private int Prefabs_Count = 20;
 
 
     private void Awake()
@@ -38,7 +38,7 @@ public class Spawner : MonoBehaviour
 
         Init();
 
-        SpawnTime = 1f;
+       
         StartCoroutine(SpawnDDong_Coroutine());
 
     }

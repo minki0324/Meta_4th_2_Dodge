@@ -3234,7 +3234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DDONG_Prefab: {fileID: 4365613638439512474, guid: 2d763fb83d68d1e43a9a6b7ae33b8013, type: 3}
-  Prefabs_Count: 10
+  Prefabs_Count: 20
 --- !u!1 &2034901338
 GameObject:
   m_ObjectHideFlags: 0

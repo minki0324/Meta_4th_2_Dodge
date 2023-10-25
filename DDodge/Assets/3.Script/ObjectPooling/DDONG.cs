@@ -12,7 +12,7 @@ public class DDONG : MonoBehaviour
     private void Update()
     {
         spawner = FindObjectOfType<Spawner>();
-        //StartCoroutine(move_Down());
+        StartCoroutine(move_Down());
     }
 
     private void Start()
@@ -35,7 +35,7 @@ public class DDONG : MonoBehaviour
 
     private IEnumerator move_Down()
     {
-        WaitForSeconds wfs = new WaitForSeconds(0.5f);
+        WaitForSeconds wfs = new WaitForSeconds(1f);
         while (true)
         {
             transform.position += new Vector3(0, -0.01f, 0);
