@@ -8,8 +8,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [SerializeField] private Ranking ranking;
+    [SerializeField] private GameObject GameOverUI;
+
     public float GameTime;
     public bool isLive = false;
+
+    public string Neckname = null;
+    public int Score;
 
     private void Awake()
     {
@@ -20,6 +26,25 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         GameTime += Time.deltaTime;
+    }
+
+    public void GameOver()
+    {
+        StartCoroutine(GameOver_co());
+    }
+
+    private IEnumerator GameOver_co()
+    {
+        GameOverUI.gameObject.SetActive(true);
+        isLive = false;
+        ranking.SaveData_m();
+        ranking.DisplayRanking();
+
+        yield return new WaitForSeconds(0.5f);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Stop();
     }
 
     public void Stop()

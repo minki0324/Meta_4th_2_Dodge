@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
    
 
 public class PlayerMovement : MonoBehaviour
 {
     Camera camera;
-    [SerializeField] private GameObject GameOverUI;
+    
 
     public float Speed = 5f;
     public float runSpeed = 8f;
@@ -17,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     public float rotSpeed = 5f;
     private Animator ani;
     private Vector3 dir = Vector3.zero;
+
+    [SerializeField] private Text[] ranking;
     void Start()
     {
         ani = GetComponent<Animator>();
@@ -105,13 +108,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.CompareTag("Dead"));
         if (other.CompareTag("Dead"))
         {
-            GameOverUI.gameObject.SetActive(true);
-            GameManager.instance.Stop();
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            GameManager.instance.GameOver();   
         }
     }
 }
