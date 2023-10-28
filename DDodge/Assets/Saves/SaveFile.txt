@@ -1,1 +1,1 @@
-{"highscore":[{"ID":"kkk","Score":7},{"ID":"jjj","Score":5},{"ID":"Okey","Score":2},{"ID":"HIHI","Score":0},{"ID":"HI","Score":0},{"ID":"haerh","Score":7}]}
+{"highscore":[{"ID":"kkk","Score":7},{"ID":"jjj","Score":5},{"ID":"Okey","Score":2},{"ID":"HIHI","Score":0},{"ID":"HI","Score":0},{"ID":"haerh","Score":7},{"ID":"안녕","Score":14},{"ID":"ff","Score":8},{"ID":"asd","Score":6},{"ID":"gfd","Score":19},{"ID":"ggar","Score":15},{"ID":"asdg","Score":9},{"ID":"ggs","Score":96}]}

@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    enum item
+    public enum ItemType
     {
         item1,
         item2
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-
-        }
-    }
+    public ItemType itemType;
 }

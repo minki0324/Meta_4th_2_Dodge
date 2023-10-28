@@ -38,7 +38,7 @@ public class ItemSpawner : MonoBehaviour
 
         // 랜덤 각도와 maxDistance를 사용하여 위치 계산
         Vector3 offset = new Vector3(Mathf.Sin(randomAngle * Mathf.Deg2Rad), 0, Mathf.Cos(randomAngle * Mathf.Deg2Rad)) * maxDistance;
-        Vector3 spawnPos = playerTransform.position + offset;
+        Vector3 spawnPos = new Vector3(playerTransform.position.x + offset.x, 1.2f, playerTransform.position.z + offset.z); 
 
         GameObject selectedItem = items[Random.Range(0, items.Length)];
         GameObject item = Instantiate(selectedItem, spawnPos, Quaternion.identity);

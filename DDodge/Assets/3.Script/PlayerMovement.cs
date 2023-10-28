@@ -10,11 +10,8 @@ public class PlayerMovement : MonoBehaviour
     
 
     public float Speed = 5f;
-    public float runSpeed = 8f;
-    public float finalSpeed;
     public float smoothness = 10f;
     public bool toggleCameraRotation;
-    public bool isRun;
     public float rotSpeed = 5f;
     private Animator ani;
     private Vector3 dir = Vector3.zero;
@@ -39,15 +36,7 @@ public class PlayerMovement : MonoBehaviour
             toggleCameraRotation = false;
 
         }
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            isRun = true;
-        }
-        else
-        {
-
-            isRun = false;
-        }
+      
         InputMovment();
 
     }
@@ -61,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
     //}
     private void InputMovment()
     {
-        finalSpeed = (isRun) ? runSpeed : Speed;
 
         Vector3 forward = transform.TransformDirection(Vector3.forward);
 
@@ -94,14 +82,10 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(moveDirection);
 
             // 이동
-            transform.position += (moveDirection.normalized * finalSpeed * Time.deltaTime);
+            transform.position += (moveDirection.normalized * Speed * Time.deltaTime);
 
 
         }
-
-
-        float percent = ((isRun) ? 1 : 0.5f) * moveDirection.magnitude;
-
     }
 
    
@@ -112,5 +96,29 @@ public class PlayerMovement : MonoBehaviour
         {
             GameManager.instance.GameOver();   
         }
+        else if(other.CompareTag("Item"))
+        {
+            Item item = other.GetComponent<Item>();
+            switch(item.itemType)
+            {
+                case Item.ItemType.item1:
+                    Debug.Log("들어옴?");
+                    StartCoroutine(Item_1(2f));
+                    Destroy(other.gameObject);
+                    break;
+                case Item.ItemType.item2:
+                    Speed++;
+                    Destroy(other.gameObject);
+                    break;
+            }
+        }
+    }
+
+    private IEnumerator Item_1(float duration)
+    {
+        // 아이템을 먹은 후 일정 시간 동안 대기
+        GetComponent<Collider>().enabled = false;
+        yield return new WaitForSeconds(duration);
+        GetComponent<Collider>().enabled = true;
     }
 }

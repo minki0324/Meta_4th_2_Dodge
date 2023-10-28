@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Dead
+  - Item
   layers:
   - Default
   - TransparentFX
